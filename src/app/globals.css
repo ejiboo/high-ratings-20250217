@@ -3,27 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: 17, 24, 39;
+  --background-rgb: 249, 250, 251;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+@layer components {
+  .content-card {
+    @apply bg-white rounded-lg p-6 border border-gray-200 hover:shadow-sm transition-shadow;
+  }
+  
+  .tab-button {
+    @apply px-6 py-2 rounded-full transition-colors text-gray-500 hover:text-gray-700;
+  }
+  
+  .tab-button-active {
+    @apply bg-gray-100 font-medium text-gray-900;
+  }
+  
+  .filter-button {
+    @apply px-4 py-1 text-sm transition-colors text-gray-600 hover:text-gray-800;
+  }
+  
+  .filter-button-active {
+    @apply bg-white rounded-full font-medium text-gray-900 shadow-sm;
+  }
 }
 
 @layer utilities {
